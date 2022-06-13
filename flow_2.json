@@ -1,0 +1,153 @@
+[
+    {
+        "id": "1e8f9c2e2571f148",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c2976dd67a03ad1a",
+        "type": "inject",
+        "z": "1e8f9c2e2571f148",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "g9",
+                "v": "Saludos grupo 9",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 220,
+        "wires": [
+            [
+                "8915209e9ecc20fe",
+                "bf22940a5d12b0d5"
+            ]
+        ]
+    },
+    {
+        "id": "cab55537654c4e04",
+        "type": "debug",
+        "z": "1e8f9c2e2571f148",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "8915209e9ecc20fe",
+        "type": "function",
+        "z": "1e8f9c2e2571f148",
+        "name": "",
+        "func": "// Usaremos // para agregar comentarios\n\n// Crearemos un objeto Date a partir del payload enviado por timestamp\nvar date = new Date(msg.payload);\n//Cambiamos el payload para que sea una fecha con formato\nmsg.payload = date.toString();\n//Finalmente regresamos el mensaje para que se envíe al siguiente  nodo\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 220,
+        "wires": [
+            [
+                "cab55537654c4e04",
+                "a86a0645fe8d22a1",
+                "e2d3fdbf78522808"
+            ]
+        ]
+    },
+    {
+        "id": "a86a0645fe8d22a1",
+        "type": "ui_text",
+        "z": "1e8f9c2e2571f148",
+        "group": "efc17adc02604433",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Fecha - label",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 750,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "e2d3fdbf78522808",
+        "type": "debug",
+        "z": "1e8f9c2e2571f148",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "g9",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "bf22940a5d12b0d5",
+        "type": "debug",
+        "z": "1e8f9c2e2571f148",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "efc17adc02604433",
+        "type": "ui_group",
+        "name": "Fecha actual - Grupo",
+        "tab": "5cb915cec07ac994",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5cb915cec07ac994",
+        "type": "ui_tab",
+        "name": "Flow 2 - Fecha",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
